@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Saborê — uma experiência gastronômica contemporânea de alto padrão.">
+    <title>Saborê | Experiência Gastronômica</title>
+
+    <!-- Google Fonts para UI High-End -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <a href="#inicio" class="logo" aria-label="Saborê — início">
+            saborê<span></span>
+        </a>
+
+        <button class="botao-menu" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="navegacao">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="navegacao" id="navegacao" aria-label="Navegação principal">
+            <a href="#inicio">Início</a>
+            <a href="#cardapio">Cardápio</a>
+            <a href="#sobre">Nossa História</a>
+            <a href="#depoimentos">Avaliações</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+        <a href="#contato" class="botao-reserva">Reservar Mesa</a>
+    </header>
+
+    <main>
+        <!-- HERO BANNER FLUTUANTE ESTILO FIGMA -->
+        <section class="hero" id="inicio">
+            <div class="hero-conteudo">
+                <p class="subtitulo">CULINÁRIA CONTEMPORÂNEA</p>
+                <h1>
+                    Mais que sabor.
+                    <span>Uma experiência</span>
+                </h1>
+                <p class="hero-descricao">
+                    Ingredientes selecionados, combinações surpreendentes e momentos que merecem ser apreciados com calma.
+                </p>
+                <a href="#cardapio" class="botao-principal">Explorar Cardápio</a>
+            </div>
+        </section>
+
+
+
+
+        <div class="faixa-destaque" aria-label="Destaques do restaurante">
+    <div class="faixa-conteudo" aria-hidden="true">
+        <span>Ingredientes frescos</span>
+        <span>✳</span>
+        <span>Cozinha autoral</span>
+        <span>✳</span>
+        <span>Experiências memoráveis</span>
+        <span>✳</span>
+        <span>Feito para surpreender</span>
+        <span>✳</span>
+    </div>
+</div>
+
+        <!-- CARDÁPIO -->
+        <section class="cardapio" id="cardapio">
+            <div class="cardapio-cabecalho">
+                <div>
+                    <p class="subtitulo">FEITO PARA SURPREENDER</p>
+                    <h2>Uma experiência a cada prato.</h2>
+                    <p>Ingredientes selecionados, sabores inesquecíveis.</p>
+                </div>
+                <span class="cardapio-detalhe">MENU 2026</span>
+            </div>
+
+            <div class="filtros-cardapio" role="group" aria-label="Filtrar pratos">
+                <button class="filtro ativo" data-categoria="todos" aria-pressed="true">Todos</button>
+                <button class="filtro" data-categoria="entradas" aria-pressed="false">Entradas</button>
+                <button class="filtro" data-categoria="principais" aria-pressed="false">Principais</button>
+                <button class="filtro" data-categoria="sobremesas" aria-pressed="false">Sobremesas</button>
+            </div>
+
+            <div class="pratos-grid">
+                <article class="prato-card" data-categoria="entradas">
+                    <div class="prato-imagem">
+                        <img src="https://images.unsplash.com/photo-1541014741259-de529411b96a?auto=format&fit=crop&w=800&q=85" alt="Entrada" loading="lazy">
+                        <span class="prato-tipo">ENTRADA</span>
+                    </div>
+                    <div class="prato-info">
+                        <div class="prato-titulo">
+                            <h3>Bruschetta da Casa</h3>
+                            <span>R$ 28</span>
+                        </div>
+                        <p>Pão artesanal, tomates frescos, manjericão e azeite extravirgem.</p>
+                    </div>
+                </article>
+
+                <article class="prato-card" data-categoria="principais">
+                    <div class="prato-imagem">
+                        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=85" alt="Massa" loading="lazy">
+                        <span class="prato-tipo">PRINCIPAL</span>
+                    </div>
+                    <div class="prato-info">
+                        <div class="prato-titulo">
+                            <h3>Fettuccine Artesanal</h3>
+                            <span>R$ 56</span>
+                        </div>
+                        <p>Massa fresca, molho cremoso e um toque de ervas aromáticas.</p>
+                    </div>
+                </article>
+
+                <article class="prato-card" data-categoria="principais">
+                    <div class="prato-imagem">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=85" alt="Carne" loading="lazy">
+                        <span class="prato-tipo">PRINCIPAL</span>
+                    </div>
+                    <div class="prato-info">
+                        <div class="prato-titulo">
+                            <h3>Seleção do Chef</h3>
+                            <span>R$ 72</span>
+                        </div>
+                        <p>Uma combinação especial com acompanhamentos da estação.</p>
+                    </div>
+                </article>
+
+                <article class="prato-card" data-categoria="sobremesas">
+                    <div class="prato-imagem">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=85" alt="Sobremesa" loading="lazy">
+                        <span class="prato-tipo">SOBREMESA</span>
+                    </div>
+                    <div class="prato-info">
+                        <div class="prato-titulo">
+                            <h3>Chocolate em Camadas</h3>
+                            <span>R$ 24</span>
+                        </div>
+                        <p>Texturas de chocolate com finalização delicada.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- AVALIAÇÕES / DEPOIMENTOS (ESTILO SLIDER FIGMA) -->
+        <section class="depoimentos" id="depoimentos">
+            <p class="subtitulo">AVALIAÇÕES</p>
+            <h2>O que dizem os nossos clientes</h2>
+            
+            <div class="depoimento-card">
+                <span class="aspas">“</span>
+                <p class="depoimento-texto">
+                    Uma das melhores experiências gastronômicas da cidade. O atendimento impecável e a harmonização dos pratos nos surpreendeu do início ao fim.
+                </p>
+                <div class="depoimento-autor">
+                    <strong>Jonny Thomas</strong>
+                    <span>Crítico Gastronômico</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE -->
+        <section class="sobre" id="sobre">
+            <div class="sobre-imagem">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1100&q=85" alt="Mesa de restaurante" loading="lazy">
+                <div class="sobre-selo">
+                    <span>MAIS QUE</span>
+                    <strong>comida.</strong>
+                    <span>UMA EXPERIÊNCIA.</span>
+                </div>
+            </div>
+
+            <div class="sobre-conteudo">
+                <p class="subtitulo">NOSSA ESSÊNCIA</p>
+                <h2>A arte de transformar <span>momentos em memórias.</span></h2>
+                <p class="sobre-texto">
+                    No Saborê, acreditamos que a gastronomia vai além do sabor. Ela está nos encontros inesperados, nas conversas que duram horas e nos pequenos detalhes.
+                </p>
+
+                <div class="sobre-diferenciais">
+                    <div>
+                        <span class="diferencial-numero">01</span>
+                        <div>
+                            <h3>Ingredientes Selecionados</h3>
+                            <p>Qualidade e atenção na escolha de cada produtor local.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="diferencial-numero">02</span>
+                        <div>
+                            <h3>Cuidado em Cada Detalhe</h3>
+                            <p>Da apresentação dos pratos à sonorização do ambiente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+        <section class="contato" id="contato">
+            <div class="contato-conteudo">
+                <p class="subtitulo">VIVA A EXPERIÊNCIA</p>
+                <h2>Reserve a sua <span>mesa especial.</span></h2>
+                <p class="contato-descricao">
+                    Reúna quem você gosta e deixe o próximo momento inesquecível por nossa conta.
+                </p>
+                <a href="https://wa.me/5511999999999" class="botao-principal" target="_blank" rel="noopener noreferrer">
+                    <span>Consultar Disponibilidade ↗</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <a href="#inicio" class="logo">saborê<span>.</span></a>
+        <p>© 2026 Saborê. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

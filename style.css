@@ -1,0 +1,775 @@
+
+:root {
+    /* Identidade principal */
+    --carvao: #303B32;
+    --carvao-claro: #435343;
+    --creme: #FFF8EF;
+
+    /* Nova paleta */
+    --oliva: #71866A;
+    --terracota: #C87556;
+    --pessego: #F2CDB7;
+    --marfim: #FFF8EF;
+    --verde-claro: #E8EDE3;
+
+    /* Compatibilidade com o CSS existente */
+    --carvao-fundo: #FFF8EF;
+    --carvao-card: #FFFFFF;
+    --dourado: #C87556;
+    --dourado-ambar: #C87556;
+    --texto-suave: #687064;
+    --texto-mutado: #687064;
+    --texto-escuro: #303B32;
+    --texto-secundario: #687064;
+    --branco: #303B32;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--carvao-fundo);
+    color: var(--creme);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ===== 2. CABEÇALHO ===== */
+
+/* ===== CABEÇALHO SABORÊ ===== */
+.cabecalho {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 18px 6%;
+    background-color: rgba(255, 248, 239, 0.96);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #E6DCCF;
+    backdrop-filter: blur(12px);
+}
+.logo {
+    justify-self: start;
+}
+
+.navegacao {
+    justify-self: center;
+}
+
+.botao-reserva:hover,
+.botao-principal:hover {
+    background: var(--carvao-claro);
+    box-shadow: 0 5px 16px rgba(48, 59, 50, 0.18);
+    transform: translateY(-2px);
+}
+
+.botao-menu {
+    display: none;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--dourado-ambar);
+}
+
+.navegacao {
+    display: flex;
+    gap: 32px;
+}
+
+.navegacao a {
+    color: var(--texto-mutado);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navegacao a:hover {
+    color: var(--dourado-ambar);
+}
+
+.botao-reserva,
+.botao-principal {
+    display: inline-block;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--dourado-ambar), #c98a21);
+    color: var(--carvao-fundo);
+    font-size: 0.88rem;
+    font-weight: 700;
+    border-radius: 40px;
+    box-shadow: 0 6px 20px rgba(229, 169, 59, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botao-reserva:hover,
+.botao-principal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(229, 169, 59, 0.4);
+}
+
+/* ===== 3. HERO BANNER ESTILO FIGMA ===== */
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 82vh;
+    margin: 20px 4%;
+    padding: 60px 8%;
+    border-radius: 28px;
+    background: linear-gradient(90deg, rgba(18, 16, 14, 0.92) 40%, rgba(18, 16, 14, 0.35) 100%), 
+                url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.hero-conteudo {
+    max-width: 600px;
+}
+
+.subtitulo {
+    color: var(--dourado-ambar);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.05;
+    color: var(--branco);
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    display: block;
+    font-family: 'Great Vibes', cursive; /* Fonte manuscrita idêntica ao design */
+    color: var(--dourado-ambar);
+    font-size: 1.25em;
+    font-weight: 400;
+    margin-top: -12px;
+}
+
+.hero-descricao {
+    font-size: 1.05rem;
+    color: var(--texto-mutado);
+    margin-bottom: 32px;
+}
+
+/* ===== 4. CARDÁPIO ===== */
+.cardapio {
+    padding: 100px 8%;
+}
+
+.cardapio-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+.cardapio-cabecalho h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    margin-top: 8px;
+}
+
+.cardapio-detalhe {
+    color: var(--dourado-ambar);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+/* Filtros em Pill Buttons */
+.filtros-cardapio {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filtro {
+    padding: 12px 26px;
+    border: 1px solid rgba(245, 240, 231, 0.15);
+    border-radius: 30px;
+    background: transparent;
+    color: var(--creme);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filtro:hover,
+.filtro.ativo {
+    background-color: var(--dourado-ambar);
+    color: var(--carvao-fundo);
+    border-color: var(--dourado-ambar);
+}
+
+/* Cards do Cardápio */
+.pratos-grid {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 32px;
+}
+
+.prato-card {
+    background-color: var(--carvao-card);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(245, 240, 231, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.prato-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--dourado-ambar);
+}
+
+.prato-card[hidden] {
+    display: none;
+}
+
+.prato-imagem {
+    position: relative;
+    height: 220px;
+}
+
+.prato-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.prato-tipo {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 6px 14px;
+    background-color: rgba(18, 16, 14, 0.85);
+    color: var(--dourado-ambar);
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 20px;
+    letter-spacing: 1.5px;
+}
+
+.prato-info {
+    padding: 24px;
+}
+
+.prato-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.prato-titulo h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+}
+
+.prato-titulo span {
+    color: var(--dourado-ambar);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.prato-info p {
+    color: var(--texto-mutado);
+    font-size: 0.9rem;
+}
+
+/* ===== 5. DEPOIMENTOS (FIGMA CARD) ===== */
+.depoimentos {
+    padding: 80px 8%;
+    text-align: center;
+    background-color: var(--carvao-card);
+    margin: 40px 4%;
+    border-radius: 28px;
+    border: 1px solid rgba(245, 240, 231, 0.05);
+}
+
+.depoimentos h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.depoimento-card {
+    max-width: 650px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.aspas {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    color: var(--dourado-ambar);
+    line-height: 0;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.depoimento-texto {
+    font-size: 1.15rem;
+    color: var(--creme);
+    font-style: italic;
+    margin-bottom: 24px;
+}
+
+.depoimento-autor strong {
+    display: block;
+    color: var(--dourado-ambar);
+    font-size: 1rem;
+}
+
+.depoimento-autor span {
+    color: var(--texto-mutado);
+    font-size: 0.85rem;
+}
+
+/* ===== 6. SOBRE ===== */
+.sobre {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 100px 8%;
+}
+
+.sobre-imagem {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.sobre-imagem img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+}
+
+.sobre-selo {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--dourado-ambar);
+    color: var(--carvao-fundo);
+    padding: 18px 24px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+}
+
+.sobre-selo strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+}
+
+.sobre-conteudo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    margin: 12px 0 20px;
+}
+
+.sobre-conteudo h2 span {
+    color: var(--dourado-ambar);
+    font-style: italic;
+}
+
+.sobre-texto {
+    color: var(--texto-mutado);
+    margin-bottom: 28px;
+}
+
+.sobre-diferenciais {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sobre-diferenciais > div {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.diferencial-numero {
+    color: var(--dourado-ambar);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* ===== 7. CONTATO E RODAPÉ ===== */
+.contato {
+    padding: 100px 8%;
+    text-align: center;
+    background: radial-gradient(circle, var(--carvao-card) 0%, var(--carvao-fundo) 100%);
+}
+
+.contato-conteudo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    margin: 12px 0;
+}
+
+.contato-conteudo h2 span {
+    color: var(--dourado-ambar);
+    font-style: italic;
+}
+
+.contato-descricao {
+    color: var(--texto-mutado);
+    margin-bottom: 32px;
+}
+
+.rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 8%;
+    border-top: 1px solid rgba(245, 240, 231, 0.08);
+}
+
+.rodape p {
+    color: var(--texto-mutado);
+    font-size: 0.85rem;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 850px) {
+    .sobre {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        margin: 10px;
+        padding: 40px 6%;
+    }
+}
+
+
+/* ===== NOVA IDENTIDADE VISUAL SABORÊ ===== */
+
+body {
+    background-color: var(--marfim);
+    color: var(--texto-escuro);
+}
+
+.cabecalho {
+    background-color: rgba(255, 248, 239, 0.96);
+    border-bottom: 1px solid #E6DCCF;
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    color: var(--carvao);
+}
+
+.navegacao a {
+    color: var(--texto-secundario);
+}
+
+.navegacao a:hover,
+.logo span {
+    color: var(--terracota);
+}
+
+.botao-reserva,
+
+.botao-principal {
+    background: var(--oliva);
+    color: #FFFFFF;
+    box-shadow: 0 5px 16px rgba(113, 134, 106, 0.18);
+}
+
+.botao-reserva:hover,
+.botao-principal:hover {
+    background: var(--carvao-claro);
+    box-shadow: 0 8px 20px rgba(48, 59, 50, 0.16);
+}
+
+.hero {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(36, 48, 38, 0.82) 0%,
+            rgba(36, 48, 38, 0.48) 55%,
+            rgba(36, 48, 38, 0.12) 100%
+        ),
+        url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1600&q=85")
+        center / cover no-repeat;
+    box-shadow: 0 16px 36px rgba(48, 59, 50, 0.12);
+}
+
+.subtitulo {
+    color: var(--terracota);
+}
+
+.hero .subtitulo,
+.hero h1,
+.hero h1 span {
+    color: var(--creme);
+}
+
+.hero h1 span {
+    color: var(--pessego);
+}
+
+.hero-descricao {
+    color: #F5EEE4;
+}
+
+/* Cardápio */
+
+.cardapio {
+    background-color: var(--marfim);
+    color: var(--carvao);
+}
+
+.cardapio-cabecalho h2,
+.prato-titulo h3 {
+    color: var(--carvao);
+}
+
+.cardapio-cabecalho > div > p:last-child,
+.prato-info p {
+    color: var(--texto-secundario);
+}
+
+.cardapio-detalhe,
+.prato-titulo span {
+    color: var(--terracota);
+}
+
+.filtro {
+    border-color: #D9DFD2;
+    color: var(--carvao);
+}
+
+.filtro:hover,
+.filtro.ativo {
+    background-color: var(--oliva);
+    border-color: var(--oliva);
+    color: #FFFFFF;
+}
+
+.prato-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E9E4DA;
+    box-shadow: 0 5px 20px rgba(48, 59, 50, 0.04);
+}
+
+.prato-card:hover {
+    border-color: var(--oliva);
+}
+
+.prato-tipo {
+    background-color: var(--marfim);
+    color: var(--carvao);
+}
+
+/* Depoimentos */
+
+.depoimentos {
+    background-color: var(--verde-claro);
+    border-color: #D9E1D3;
+    color: var(--carvao);
+}
+
+.depoimento-texto {
+    color: var(--texto-secundario);
+}
+
+.aspas,
+.depoimento-autor strong {
+    color: var(--terracota);
+}
+
+.depoimento-autor span {
+    color: var(--texto-secundario);
+}
+
+/* Nossa história */
+
+.sobre {
+    background-color: var(--verde-claro);
+    color: var(--carvao);
+}
+
+.sobre-conteudo h2 span,
+.diferencial-numero {
+    color: var(--terracota);
+}
+
+.sobre-texto,
+.sobre-diferenciais p {
+    color: var(--texto-secundario);
+}
+
+.sobre-selo {
+    background-color: var(--pessego);
+    color: var(--carvao);
+    border-radius: 0;
+}
+
+.sobre .botao-principal {
+    background-color: var(--oliva);
+    color: #FFFFFF;
+}
+
+/* Contato */
+
+.contato {
+    background: var(--pessego);
+    color: var(--carvao);
+}
+
+.contato-conteudo h2 span {
+    color: #824C38;
+}
+
+.contato-descricao {
+    color: #594A40;
+}
+
+/* Rodapé */
+
+.rodape {
+    background-color: var(--carvao);
+    border-top: none;
+    color: var(--creme);
+}
+
+.rodape .logo {
+    color: var(--creme);
+}
+
+.rodape .logo span {
+    color: var(--pessego);
+}
+
+.rodape p {
+    color: #D8DED2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+
+
+/* FAIXA ANIMADA */
+.faixa-destaque {
+    overflow: hidden;
+    padding: 18px 0;
+    background-color: var(--terracota);
+    color: var(--marfim);
+}
+
+.faixa-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    width: max-content;
+    white-space: nowrap;
+    animation: deslizar-faixa 24s linear infinite;
+}
+
+.faixa-conteudo span {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.faixa-conteudo span:nth-child(even) {
+    color: var(--pessego);
+    font-size: 18px;
+}
+
+@keyframes deslizar-faixa {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .faixa-conteudo {
+        animation: none;
+    }
+}
+
+
+
+
+
+/* ZOOM SUAVE NO FUNDO DO HERO */
+.hero {
+    background-size: 100% 100%, 100% 100%;
+    animation: hero-zoom 20s ease-in-out infinite alternate;
+    will-change: background-size;
+}
+
+@keyframes hero-zoom {
+    from {
+        background-size: 100% 100%, 100% 100%;
+    }
+
+    to {
+        background-size: 100% 100%, 115% 115%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero {
+        animation: none;
+        will-change: auto;
+    }
+}
